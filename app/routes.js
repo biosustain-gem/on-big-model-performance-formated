@@ -47,6 +47,26 @@ export default function createRoutes(store) {
           .catch(errorLoading);
       },
     }, {
+      path: '/Scroller',
+      name: 'scroller',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          import('containers/Scroller/reducer'),
+          import('containers/Scroller/sagas'),
+          import('containers/Scroller'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('scroller', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

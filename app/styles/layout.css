@@ -1,0 +1,10 @@
+.Resizer {
+  background: lightgray;
+  width: 1em; }
+  .Resizer.vertical {
+    cursor: col-resize; }
+  .Resizer.horizontal {
+    cursor: row-resize; }
+
+.Pane {
+  overflow: auto; }

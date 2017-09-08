@@ -1,0 +1,178 @@
+svg.escher {
+  position: relative;
+  width: 100%;
+  height: 99%;
+}
+
+svg.escher .label {
+  font-family: sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 8px;
+  fill: #000;
+  stroke: none;
+}
+
+svg.escher .label.node {
+  font-size: 20px;
+}
+
+svg.escher .label.reaction {
+  font-size: 30px;
+  fill: #202078;
+  text-rendering: optimizelegibility;
+}
+
+svg.escher .label.gene {
+  font-size: 18px;
+  fill: #202078;
+}
+
+svg.escher .node circle {
+  stroke-width: 2px;
+}
+
+svg.escher .node.midmarker, svg.escher .node.multimarker {
+  fill: #fff;
+  fill-opacity: .2;
+  stroke: #323232;
+}
+
+svg.escher .node.metabolite-circle {
+  stroke: #a24510;
+  fill: #e0865b;
+}
+
+svg.escher .segment {
+  stroke: #334E75;
+  stroke-width: 10px;
+  fill: none;
+}
+
+svg.escher .segment .arrowhead {
+  fill: #334E75;
+}
+
+svg.escher .stoichiometry-label-rect {
+  fill: #fff;
+  opacity: .5;
+}
+
+svg.escher .stoichiometry-label {
+  fill: #334E75;
+  font-size: 17px;
+}
+
+svg.escher .membrane {
+  fill: none;
+  stroke: #fb0;
+}
+
+svg.escher .brush .extent {
+  fill-opacity: .1;
+  fill: #000;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+svg.escher #brush-container .background {
+  fill: none;
+}
+
+svg.escher .bezier-circle {
+  fill: #fff;
+}
+
+svg.escher .bezier-circle.b1 {
+  stroke: red;
+}
+
+svg.escher .bezier-circle.b2 {
+  stroke: #00f;
+}
+
+svg.escher .connect-line {
+  stroke: #c8c8c8;
+}
+
+svg.escher .direction-arrow {
+  stroke: #000;
+  stroke-width: 1px;
+  fill: #fff;
+  opacity: .3;
+}
+
+svg.escher .start-reaction-cursor {
+  cursor: pointer;
+}
+
+svg.escher .start-reaction-target {
+  stroke: #646464;
+  fill: none;
+  opacity: .5;
+}
+
+svg.escher .rotation-center-line {
+  stroke: red;
+  stroke-width: 5px;
+}
+
+svg.escher .highlight {
+  fill: #D97000;
+  text-decoration: underline;
+}
+
+svg.escher .cursor-grab {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+svg.escher .cursor-grabbing {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+svg.escher .edit-text-cursor {
+  cursor: text;
+}
+
+svg.escher .metabolite {
+  pointer-events: all;
+}
+
+svg.escher .metabolite circle {
+  fill: orange;
+  stroke-width: 1;
+  stroke: black;
+}
+
+svg.escher .metabolite text {
+  font-size: 3em;
+  text-rendering: optimizelegibility;
+  cursor: default;
+  font-size: 8px;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  fill: #000;
+  stroke: none;
+}
+
+svg.escher .multimarker {
+  fill: aliceblue;
+  stroke-width: 1;
+  stroke: black;
+}
+
+svg.escher .midmarker {
+  fill: lightgreen;
+  stroke-width: 1;
+  stroke: black;
+}
+
+svg.escher .segment {
+  stroke: lightgray;
+  stroke-width: 10;
+  fill: none;
+}

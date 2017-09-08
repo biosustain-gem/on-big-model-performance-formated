@@ -14,4 +14,8 @@ export default defineMessages({
     id: 'boilerplate.components.Header.features',
     defaultMessage: 'Features',
   },
+  Scroller: {
+    id: 'boilerplate.components.Header.Scroller',
+    defaultMessage: 'Scroller',
+  },
 });

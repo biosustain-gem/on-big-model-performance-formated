@@ -6,20 +6,24 @@ import LocaleToggle from 'containers/LocaleToggle';
 import Wrapper from './Wrapper';
 import messages from './messages';
 
+let padding = {
+  padding: '2em'
+};
+
 function Footer() {
   return (
-    <Wrapper>
-      <section>
-        <FormattedMessage {...messages.licenseMessage} />
-      </section>
-      <section>
-        <LocaleToggle />
-      </section>
+    <Wrapper style={padding}>
+      {/*<section>*/}
+        {/*<FormattedMessage {...messages.licenseMessage} />*/}
+      {/*</section>*/}
+      {/*<section>*/}
+        {/*<LocaleToggle />*/}
+      {/*</section>*/}
       <section>
         <FormattedMessage
           {...messages.authorMessage}
           values={{
-            author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>,
+            author: <A href="https://www.linkedin.com/in/dominik-maszczyk/">Dominik Maszczyk</A>,
           }}
         />
       </section>
