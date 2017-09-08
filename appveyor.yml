@@ -1,9 +1,9 @@
 # http://www.appveyor.com/docs/appveyor-yml
 
-# Set build version format here instead of in the admin panel
-version: "{build}"
+# Set docs version format here instead of in the admin panel
+version: "{docs}"
 
-# Do not build on gh tags
+# Do not docs on gh tags
 skip_tags: true
 
 # Test against these versions of Node.js
@@ -36,9 +36,9 @@ test_script:
   # Output debugging info
   - node --version
   - node ./internals/scripts/generate-templates-for-linting
-  # run tests and run build
+  # run tests and run docs
   - yarn run test
-  - yarn run build
+  - yarn run docs
 
 # Cache node_modules for faster builds
 cache:

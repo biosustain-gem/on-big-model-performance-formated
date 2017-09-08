@@ -8,7 +8,7 @@ node_js:
 script:
   - node ./internals/scripts/generate-templates-for-linting
   - npm run test
-  - npm run build
+  - npm run docs
 
 before_install:
   - export CHROME_BIN=chromium-browser
