@@ -33,23 +33,6 @@ export default function createRoutes(store) {
       
         importModules.catch(errorLoading);
       },
-    },
-    {
-      path: '/on-big-model-performance-formated/',
-      name: 'home',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          import('containers/HomePage'),
-        ]);
-      
-        const renderRoute = loadModule(cb);
-      
-        importModules.then(([component]) => {
-          renderRoute(component);
-        });
-      
-        importModules.catch(errorLoading);
-      },
     }, {
       path: '*',
       name: 'notfound',

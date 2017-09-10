@@ -2,14 +2,14 @@
  * Test store addons
  */
 
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import configureStore from '../store';
 
 describe('configureStore', () => {
   let store;
 
   beforeAll(() => {
-    store = configureStore({}, browserHistory);
+    store = configureStore({}, hashHistory);
   });
 
   describe('asyncReducers', () => {
