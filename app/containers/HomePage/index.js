@@ -9,7 +9,7 @@ import Helmet from "react-helmet";
 // import {FormattedMessage} from "react-intl";
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
-import {Col, Grid, Row, Table} from "react-bootstrap";
+import {Col, Grid, Row, Table, Panel} from "react-bootstrap";
 import styled from "styled-components";
 
 import {makeSelectError, makeSelectLoading, makeSelectRepos} from "containers/App/selectors";
@@ -105,33 +105,26 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
             <p style={{columnCount: 2}}>
               Trying to develop the best user experience for our new project I faced not easy choice of choosing right
               approach to satisfy the requirements.
-              Since I work on web based data visualisation in bio-chemical field the most obvious choice would be to use
-              the <b>Escher</b> (JavaScript library to visualise the bio-chemical models).
+              Since I work on web based data visualisation in biochemical field the most obvious choice would be to use
+              the <b>Escher</b> (JavaScript library to visualise the biochemical models).
               However, due to its design choices <b>Escher</b> performance drastically drops with increase of models
               complexity.
-              Assuming there will be no needs of editing models we came up with idea of just rendering maps prepared for
+              Assuming there will be no needs for editing models we came up with idea of just rendering maps prepared for
               Escher by other graph libraries to see if we can gain any performance boost and/or be provided with
-              additional functionality which otherwise I would need to create as an escher extension.
-              Among hundreds of libraries I choose few which has best potential and are based on different technologies. <br />
-              Now a day we have 3 main "web technologies" available which might be used to draw graphs. First is scalable
-              vector graphic (SVG) which provides full set of objects and all control logic. However due to its overhead
-              on each object it does not scale well with increasing number of elements. To overcome this restriction the
-              html "canvas" element was introduced where the programmer needs to take care about exact elements positions,
-              styling, determining target of user interactions and updates of the view. While it makes development process
-              harder it results in great performance boost, especially with increasing complexity. <br />
-              Last but not least technology is the WebGL where the programmer is provided with direct interface to make
-              calculations on graphic card. Although, direct programing for WebGL is extremely challenging there are
-              libraries which simplify the process providing similar object abstractions as canvas element, efficiently
-              making development process on comparable complexity level. It is also worth to mention that WebGL was
-              introduced to support 3d graphic in the browser and it is only choice to render complex 3d models now a day.
+              additional functionality which otherwise I would need to create as an Escher extension.
+              Among hundreds of libraries, I choose few which has the biggest potential and are based on different technologies. <br />
+              Now a day we have 3 main web technologies available which might be used to draw graphs. First is a scalable
+              vector graphic (SVG) which provides a full set of objects and control interface (positioning, mouse events etc. However, due to its overhead on each object, it does not scale well with increasing number of elements. To overcome this restriction the html <b>Canvas</b> element was introduced where the programmer needs to take care of exact elements positions,
+              styling, determining the target of user interactions and updates of the view. While it makes development process harder it results in a great performance boost, especially with increasing complexity. <br />
+              Last but not least technology is the <b>WebGL</b> where the programmer is provided with a direct interface to make calculations on a graphic card. Although, direct programming for <b>WebGL</b> is extremely challenging there are libraries which simplify the process providing similar object abstractions as <b>Canvas</b> element, efficiently making development process on comparable complexity level. It is also worth to mention that <b>WebGL</b> was introduced to support 3d graphic in the browser and it is only choice to render complex 3d models now a day.
             </p>
             <h3>Chosen libraries</h3>
             <ul>
-              <li>Escher</li>
-              <li>SVG + React</li>
-              <li>Cytoscape</li>
-              <li>Ngraph.pixel</li>
-              <li>Sigmajs</li>
+              <li><b>Escher <small>&#60;SVG based&#62;</small></b> - commonly used library to visualize biological pathways</li>
+              <li><b>SVG + React</b> - attempt to simply use library the website is based on to translate Escher map to SVG</li>
+              <li><b>Cytoscape <small>&#60;Canvas based&#62;</small></b> - graph library, representant of Canvas based libraries</li>
+              <li><b>Ngraph.pixel <small>&#60;WebGl based&#62;</small></b> - fast WebGL library tested for static layout and one based on physical force simulation</li>
+              <li><b>Sigmajs <small>&#60;WebGL based&#62;</small></b> - attempt to  </li>
             </ul>
           </Element>
           <Element name="Overview" className="element">
@@ -193,8 +186,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           </Element>
           <Element name="Table" className="element" style={padding}>
             <p style={{columnCount: 2}}>
-              After writing interface to render Escher map files for each of the libraries I denoted few comments on
-              each of them which for clarity I put into following table.
+              After writing interface to render Escher map files for each of the libraries I denoted few comments on each of them which for clarity I put into the following table.
             </p>
             <Table striped bordered condensed hover responsive>
               <thead>
@@ -202,10 +194,10 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
                 <td></td>
                 <th><a href="escher-visualization/build/">Escher.js</a></th>
                 <th><a href="escher-visualization/build/">React on SVG</a></th>
+                <th><a href="cytoscape-react/build/">Cytoscape</a></th>
                 <th><a href="react_ngraph_pixel/build/">Ngraph</a> <a
                   href="react_ngraph_pixel/build/#/force">(force)</a>
                 </th>
-                <th><a href="cytoscape-react/build/">Cytoscape</a></th>
                 <th><a href="sigmajs-react/build/">Sigmajs</a></th>
               </tr>
               </thead>
@@ -214,9 +206,9 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
                 <th>Description</th>
                 <td>Current solution - baseline for improvements.</td>
                 <td>The most simple approach data is parsed and added to DOM by react.</td>
-                <td>High performance 3d graph library.</td>
                 <td>Comprehensive library based on Canvas.</td>
-                <td>Failed approach of using webgl as charting library.</td>
+                <td>High performance 3d graph library.</td>
+                <td>Failed approach of using WebGL as charting library.</td>
               </tr>
               <tr>
                 <th>Advantages</th>
@@ -224,14 +216,14 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
                 <td>Does not crash for <s>big models</s> models with faulty values.</td>
                 <td>
                   <ul>
-                    <li>The performance is good even for really big models.</li>
-                    <li>No longer maintained.</li>
+                    <li>Implements folding algorithm (for predefined groups).</li>
+                    <li>Well maintained, in active development.</li>
                   </ul>
                 </td>
                 <td>
                   <ul>
-                    <li>Implements folding algorithm (for predefined groups).</li>
-                    <li>Well maintained, in active development.</li>
+                    <li>The performance is good even for really big models.</li>
+                    <li>No longer maintained.</li>
                   </ul>
                 </td>
                 <td>-</td>
@@ -250,13 +242,13 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
                 </td>
                 <td>
                   <ul>
-                    <li>Questionable usability of 3d graphs.</li>
-                    <li>More challenging to render additional elements - render in webgl.</li>
+                    <li>Performance problems - tends to lag on test model.</li>
                   </ul>
                 </td>
                 <td>
                   <ul>
-                    <li>Performance problems - tends to lag on test model.</li>
+                    <li>Questionable usability of 3d graphs.</li>
+                    <li>More challenging to render additional elements - render in WebGL.</li>
                   </ul>
                 </td>
                 <td>
@@ -272,34 +264,62 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
           <Element name="Performance" className="element">
             <p style={padding}>
               <h1>Performance testing</h1>
-              <p style={{columnCount: 2}}>
-                After empirical testing I was requested to describe the performance in measurable values. When it is easy
-                to measure the library sizes, page load time, rendering time etc. this numbers would not exactly reflects
-                the user empirical impressions. The real bottle neck for all of these library is responsibility under user
-                interaction. <br />
-                To measure it I came up with script which emulates basic user interaction which consist of two steps:
+              <p>
+                After empirical testing, I was requested to describe the performance in measurable values. When it is easy to measure the library sizes, page load time, rendering time etc. this numbers would not exactly reflect the user empirical impressions. The real bottle neck for all of these libraries is responsibility under user interaction. <br />
+                To measure it I came up with a script which emulates basic user interaction. The measurement consists of two steps:
               </p>
               <ol>
                 <li>
-                  <h6>Time to fully render graph</h6>
+                  <h5>Time to fully render graph</h5>
                   The website is refreshed simultaneous with starting timer then when graph is fully rendered the timer
                   is stopped.
                 </li>
                 <li>
-                  <h6>FPS upon interaction</h6>
-                  The graph is panned up/down, left/right and zoomed in and out. During this interactions animation
-                  frame per second (FPS) is measured, with desired value of 60 fps it can be observed that some of
-                  the libraries are able to refresh the view only few times per second.
+                  <h5>Lowest FPS upon interaction</h5>
+                  The graph is panned up/down, left/right and zoomed in and out. During this interactions animation frame per second (FPS) is measured, with the desired value of 60 fps it can be observed that some of the libraries are able to refresh the view only a few times per second.
                 </li>
               </ol>
-              In the video below you can see performance testing on each library side by side. Whereas in the top right
-              corner of sub-view is the timer measuring time to first full render of the graph and in the bottom right
-              corner you can observe FPS drop upon interaction.
+              In the video below you can see performance testing on each library side by side. Whereas in the top right corner of sub-view is the timer measuring time to first full render of the graph and in the bottom right corner you can observe FPS drop upon interaction.
             </p>
             <Video />
+            <Panel bsStyle="warning">
+              <strong>Warning!</strong> Please watch the video in the highest quality.
+            </Panel>
           </Element>
-          <Element name="Summary" className="element">
+          <Element name="Summary" className="element" style={padding}>
             <h1>Summary</h1>
+            <Table striped bordered condensed hover responsive>
+              <thead>
+              <tr>
+                <td></td>
+                <th><a href="escher-visualization/build/">Escher.js</a></th>
+                <th><a href="escher-visualization/build/">React on SVG</a></th>
+                <th><a href="cytoscape-react/build/">Cytoscape</a></th>
+                <th><a href="react_ngraph_pixel/build/">Ngraph</a> <a
+                  href="react_ngraph_pixel/build/#/force">(force)</a>
+                </th>
+                <th><a href="sigmajs-react/build/">Sigmajs</a></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th>Time to fully render graph</th>
+                <td>~ 21s</td>
+                <td>~ 14s</td>
+                <td>~ 42s</td>
+                <td>~ 6-7s</td>
+                <td>~ 5s</td>
+              </tr>
+              <tr>
+                <th>FPS upon interaction</th>
+                <td>1 fps</td>
+                <td>2 fps</td>
+                <td>1 fps</td>
+                <td>27 fps (3 fps for force layout)</td>
+                <td>3 fps</td>
+              </tr>
+              </tbody>
+            </Table>
           </Element>
           <Element name="Sandbox" className="element">
             <h1>Sandbox</h1>
@@ -312,16 +332,6 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
               <li><a href="sigmajs-react/build/">Sigmajs</a></li>
             </ul>
           </Element>
-          {/* <CenteredSection>*/}
-          {/* <H2>*/}
-          {/* <FormattedMessage {...messages.startProjectHeader} />*/}
-          {/* </H2>*/}
-          {/* <p>*/}
-          {/* <FormattedMessage {...messages.startProjectMessage} />*/}
-          {/* </p>*/}
-          {/* </CenteredSection>*/}
-          {/* <Section>*/}
-          {/* </Section>*/}
         </div>
       </article>
     );

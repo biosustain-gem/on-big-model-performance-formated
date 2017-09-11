@@ -58,6 +58,7 @@ class Navigation extends React.Component { // eslint-disable-line react/prefer-s
         <div className="container-fluid">
           <div className="">
             <ul className="nav navbar-nav">
+              <li><Link activeClass="active" spy={true} smooth={true} duration={500} offset={-50} className="Introduction" to="Introduction">Introduction</Link></li>
               <li><Link activeClass="active" spy={true} smooth={true} duration={500} offset={-50} className="Overview" to="Overview">Overview</Link></li>
               <li><Link activeClass="active" spy={true} smooth={true} duration={500} offset={-50} className="Table" to="Table">Table</Link></li>
               <li><Link activeClass="active" spy={true} smooth={true} duration={500} offset={-50} className="Performance" to="Performance">Performance testing</Link></li>
