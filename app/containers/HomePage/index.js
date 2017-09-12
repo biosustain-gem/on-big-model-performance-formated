@@ -123,8 +123,8 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
               <li><b>Escher <small>&#60;SVG based&#62;</small></b> - commonly used library to visualize biological pathways</li>
               <li><b>SVG + React</b> - attempt to simply use library the website is based on to translate Escher map to SVG</li>
               <li><b>Cytoscape <small>&#60;Canvas based&#62;</small></b> - graph library, representant of Canvas based libraries</li>
-              <li><b>Ngraph.pixel <small>&#60;WebGl based&#62;</small></b> - fast WebGL library tested for static layout and one based on physical force simulation</li>
-              <li><b>Sigmajs <small>&#60;WebGL based&#62;</small></b> - attempt to  </li>
+              <li><b>Ngraph.pixel <small>&#60;WebGl based&#62;</small></b> - fast WebGL library tested for static layout and one based on physical force simulation (2d/3d)</li>
+              <li><b>Sigmajs <small>&#60;WebGL based&#62;</small></b> - general WebGL library for drawing graphs </li>
             </ul>
           </Element>
           <Element name="Overview" className="element">
@@ -320,9 +320,22 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
               </tr>
               </tbody>
             </Table>
+            <p>
+              All the libraries can be successfully used to render graphs and it is hard to claim that one is better than the other as long we consider small graphs.
+              However, when there is need for rendering complex graphs the choice is much simpler. <br />
+              On our benchmark model (and just recording the video in the background) most of the libraries was not able to render graphs fast enough to provide acceptable user experience.
+              Among the others only Ngraph.pixel stands out in the matter of performance being up to 27 times more responsive under interaction. <br />
+              
+              <small>
+                Ps While expecting the WebGL based libraries to be the most performant, the Sigmajs results was really sunrising for me.
+                In my belief it was not developed with performance in mind for complex graphs (12~ nodes and 12~ links).
+                Although, it uses WebGL it does not use potential of this technology.
+              </small>
+            </p>
           </Element>
-          <Element name="Sandbox" className="element">
+          <Element name="Sandbox" className="element" style={padding}>
             <h1>Sandbox</h1>
+            <p>Under following links you can find libraries demos which the performance test was based on.</p>
             <ul>
               <li><a href="escher-visualization/build/">Escher.js</a></li>
               <li><a href="escher-visualization/build/">React on SVG</a></li>
